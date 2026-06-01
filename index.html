@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fangamer-form</title>
+    <link rel="stylesheet" href="bigform.css" />
+  </head>
+  <body>
+    <h1>Vote for New merch !</h1>
+    <form action="https://api.web3forms.com/submit" method="POST">
+      <input
+        type="hidden"
+        name="access_key"
+        value="a48c6dba-7215-4248-8240-56bc4d666ecd"
+      />
+      <div id="answer" class="fill">
+        <div class="first-name">
+          <label for="firs-name">First Name</label>
+          <input id="first-name" type="text" placeholder="ex: John" required />
+        </div>
+        <div class="last-name">
+          <label for="last-name">Last name</label>
+          <input id="last-name" type="text" placeholder="ex: Doe" required />
+        </div>
+        <div class="Email">
+          <label for="email">Email</label>
+          <input
+            id="email"
+            type="email"
+            placeholder="Email@email.com"
+            required
+          />
+        </div>
+        <div class="Game-name">
+          <label for="game-name">Game's name</label>
+          <input
+            id="game-name"
+            type="text"
+            placeholder="ex: Deltarun"
+            required
+          />
+        </div>
+        <div class="product-type">
+          <label for="product-type">Type of product</label>
+          <select name="product-type" id="product-type">
+            <option value="1">Physical Game</option>
+            <option value="2">Collector edition</option>
+            <option value="3">Board/Card Game</option>
+            <option value="4">Plushe</option>
+            <option value="5">Figure</option>
+            <option value="6">Poster</option>
+            <option value="7">Vinyl Album</option>
+            <option value="8">CD</option>
+            <option value="9">Slipmate</option>
+            <option value="10">Book</option>
+            <option value="11">Clothes</option>
+          </select>
+        </div>
+        <div class="price-range">
+          <label for="price-range">Price range</label>
+          <select name="price-range" id="price-range">
+            <option value="1">-15$</option>
+            <option value="2">15$-30$</option>
+            <option value="1">30$-50$</option>
+            <option value="1">50$-75$</option>
+            <option value="1">+75$</option>
+          </select>
+        </div>
+        <div class="comment">
+          <label for="comment">Comment</label>
+          <input
+            class="comment-box"
+            id="comment"
+            type="text"
+            placeholder="Tell us more :)"
+          />
+        </div>
+        <div class="condition-utilisation">
+          <!-- rajoute des condition d'utilisation un peu troll avec un lien qui redirige sur un tkt -->
+          <input
+            type="checkbox"
+            id="condition-utilisation"
+            class="condition-box"
+            required
+          />
+          <label for="condition-utilisation" class="condition-text"
+            >J'accepte les
+            <a href="condition.html">conditions d'utilisations</a></label
+          >
+        </div>
+        <script>
+          // Load saved values when page opens
+          window.onload = function () {
+            document.getElementById("first-name").value =
+              sessionStorage.getItem("first-name") || "";
+
+            document.getElementById("last-name").value =
+              sessionStorage.getItem("last-name") || "";
+
+            document.getElementById("email").value =
+              sessionStorage.getItem("email") || "";
+
+            document.getElementById("game-name").value =
+              sessionStorage.getItem("game-name") || "";
+
+            document.getElementById("comment").value =
+              sessionStorage.getItem("comment") || "";
+
+            document.getElementById("product-type").value =
+              sessionStorage.getItem("product-type") || "";
+
+            document.getElementById("price-range").value =
+              sessionStorage.getItem("price-range") || "";
+          };
+
+          // Save values whenever user types
+          document
+            .getElementById("first-name")
+            .addEventListener("input", function () {
+              sessionStorage.setItem("first-name", this.value);
+            });
+
+          document
+            .getElementById("last-name")
+            .addEventListener("input", function () {
+              sessionStorage.setItem("last-name", this.value);
+            });
+          document
+            .getElementById("email")
+            .addEventListener("input", function () {
+              sessionStorage.setItem("email", this.value);
+            });
+          document
+            .getElementById("game-name")
+            .addEventListener("input", function () {
+              sessionStorage.setItem("game-name", this.value);
+            });
+          document
+            .getElementById("comment")
+            .addEventListener("input", function () {
+              sessionStorage.setItem("comment", this.value);
+            });
+          document
+            .getElementById("product-type")
+            .addEventListener("input", function () {
+              sessionStorage.setItem("product-type", this.value);
+            });
+          document
+            .getElementById("price-range")
+            .addEventListener("input", function () {
+              sessionStorage.setItem("price-range", this.value);
+            });
+
+          // Clear saved data on submit
+          document
+            .getElementById("myForm")
+            .addEventListener("submit", function () {
+              sessionStorage.removeItem("first-name");
+              sessionStorage.removeItem("last-name");
+              sessionStorage.removeItem("Email");
+              sessionStorage.removeItem("game-name");
+              sessionStorage.removeItem("comment");
+              sessionStorage.removeItem("product-type");
+              sessionStorage.removeItem("price-range");
+            });
+        </script>
+        <a href="formfilled.html"><button type="submit">submit</button></a>
+      </div>
+    </form>
+  </body>
+</html>
